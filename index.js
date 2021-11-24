@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
-const path = require('path')
+require('dotenv').config();
+
+const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
     res.sendFile('views/index.html', {root: __dirname});
 });
 
-app.listen(3000, () => {
-    console.log("listening on port 3000");
+app.listen(port, () => {
+    console.log(`listening on port ${port}`);
 });
